@@ -72,3 +72,15 @@ from .user import UserEndpoint
 from .invite import WorkspaceInvitationsViewset
 
 from .sticky import StickyViewSet
+
+from .wiki import (
+    WikiCollectionListCreateAPIEndpoint,
+    WikiCollectionDetailAPIEndpoint,
+    WikiPageListCreateAPIEndpoint,
+    WikiPageDetailAPIEndpoint,
+    WikiPageArchiveAPIEndpoint,
+    WikiPageLockAPIEndpoint,
+    WikiPageDuplicateAPIEndpoint,
+    WikiPageVersionListAPIEndpoint,
+    WikiPageVersionDetailAPIEndpoint,
+)
