@@ -4,6 +4,7 @@
  * See the LICENSE file for details.
  */
 
+import type { ComponentType } from "react";
 import { useState } from "react";
 import { observer } from "mobx-react";
 import { useParams, usePathname } from "next/navigation";
@@ -11,10 +12,17 @@ import { SIDEBAR_WIDTH } from "@plane/constants";
 import { useLocalStorage } from "@plane/hooks";
 // components
 import { getAppSectionFromPathname } from "@/components/navigation/app-sections";
+import type { TAppSectionKey } from "@/components/navigation/app-sections";
 import { ResizableSidebar } from "@/components/sidebar/resizable-sidebar";
 import { SidebarWrapper } from "@/components/sidebar/sidebar-wrapper";
+import { WikiSidebar } from "@/components/wiki/sidebar/root";
 // hooks
 import { useAppTheme } from "@/hooks/store/use-app-theme";
+
+// Sections with their own navigation panel; the others show a placeholder until they are built
+const SECTION_PANELS: Partial<Record<TAppSectionKey, ComponentType>> = {
+  knowledge: WikiSidebar,
+};
 
 export const SectionSidebar = observer(function SectionSidebar() {
   // store hooks
@@ -27,6 +35,7 @@ export const SectionSidebar = observer(function SectionSidebar() {
   const pathname = usePathname();
   // derived values
   const section = getAppSectionFromPathname(pathname, workspaceSlug);
+  const SectionPanel = section ? SECTION_PANELS[section.key] : undefined;
 
   return (
     <ResizableSidebar
@@ -43,9 +52,13 @@ export const SectionSidebar = observer(function SectionSidebar() {
       togglePeek={toggleSidebarPeek}
       isAnySidebarDropdownOpen={isAnySidebarDropdownOpen}
     >
-      <SidebarWrapper title={section?.label ?? ""}>
-        <p className="px-2 text-13 text-tertiary">Nothing here yet.</p>
-      </SidebarWrapper>
+      {SectionPanel ? (
+        <SectionPanel />
+      ) : (
+        <SidebarWrapper title={section?.label ?? ""}>
+          <p className="px-2 text-13 text-tertiary">Nothing here yet.</p>
+        </SidebarWrapper>
+      )}
     </ResizableSidebar>
   );
 });
