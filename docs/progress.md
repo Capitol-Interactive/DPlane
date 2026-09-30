@@ -13,6 +13,12 @@ current. Feature details live in their own docs.
 | Agents, Strategy, People, Clients sections                             | Placeholders only                    | [app-rail.md](app-rail.md#known-gaps)                |
 | i18n for rail and wiki sidebar labels                                  | Not started                          |                                                      |
 
+## 2026-09-30 (Knowledge load speed)
+
+- Knowledge felt slower than Work because Work's data is loaded once at workspace startup while Knowledge fetched
+  on click, and the sidebar said "No collections yet" while loading. Added a background prefetch of the wiki data
+  and a loading skeleton. Page opens remain slower until `apps/live` is deployed.
+
 ## 2026-09-30 (follow-up)
 
 - Removed the "Undock App Rail" option (More menu and right-click menu) and made the rail always render when

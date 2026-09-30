@@ -21,6 +21,7 @@ import { Menu, MenuContent, MenuItem, MenuTrigger } from "@makeplane/propel/comp
 import { Tooltip } from "@makeplane/propel/components/tooltip";
 import { EUserPermissions, EUserPermissionsLevel } from "@plane/constants";
 import { Logo } from "@plane/blocks/emoji-icon-picker";
+import { Loader } from "@plane/blocks/skeleton";
 import { useTranslation } from "@plane/i18n";
 // hooks
 import { EPageStoreType, usePageStore } from "@/hooks/store";
@@ -153,7 +154,7 @@ const WikiCollectionItem = observer(function WikiCollectionItem({ collectionId }
 
 export const WikiCollectionsSection = observer(function WikiCollectionsSection() {
   // store hooks
-  const { sortedCollectionIds, canCurrentUserCreatePage } = usePageStore(EPageStoreType.WORKSPACE);
+  const { sortedCollectionIds, canCurrentUserCreatePage, collectionsLoader } = usePageStore(EPageStoreType.WORKSPACE);
   const { t } = useTranslation();
   // states
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -178,7 +179,15 @@ export const WikiCollectionsSection = observer(function WikiCollectionsSection()
           ) : undefined
         }
       >
-        {sortedCollectionIds.length === 0 ? (
+        {collectionsLoader === "init-loader" && sortedCollectionIds.length === 0 ? (
+          // first load: show placeholders instead of claiming there are no collections
+          <Loader className="w-full space-y-1.5">
+            {Array.from({ length: 3 }).map((_, index) => (
+              // oxlint-disable-next-line react/no-array-index-key
+              <Loader.Item key={index} height="28px" />
+            ))}
+          </Loader>
+        ) : sortedCollectionIds.length === 0 ? (
           <span className="px-2 py-1 text-12 font-medium text-placeholder">No collections yet</span>
         ) : (
           sortedCollectionIds.map((collectionId) => (

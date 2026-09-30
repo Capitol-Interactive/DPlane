@@ -16,6 +16,7 @@ import { SidebarWrapper } from "@/components/sidebar/sidebar-wrapper";
 // hooks
 import { EPageStoreType, usePageStore } from "@/hooks/store";
 // local imports
+import { WIKI_COLLECTIONS_KEY, WIKI_PAGES_KEY } from "../swr-keys";
 import { useCreateWikiPage } from "../hooks/use-create-wiki-page";
 import { WikiCollectionsSection } from "./collections-section";
 import { WikiFavoritesSection, WikiMyPagesSection } from "./personal-sections";
@@ -34,10 +35,10 @@ export const WikiSidebar = observer(function WikiSidebar() {
   const isHomeActive = pathname.replace(/\/$/, "") === homeHref;
 
   // fetch what the tree needs
-  useSWR(slug ? `WIKI_PAGES_${slug}` : null, slug ? () => fetchPagesList(slug) : null, {
+  useSWR(slug ? WIKI_PAGES_KEY(slug) : null, slug ? () => fetchPagesList(slug) : null, {
     revalidateOnFocus: true,
   });
-  useSWR(slug ? `WIKI_COLLECTIONS_${slug}` : null, slug ? () => fetchCollections(slug) : null, {
+  useSWR(slug ? WIKI_COLLECTIONS_KEY(slug) : null, slug ? () => fetchCollections(slug) : null, {
     revalidateOnFocus: true,
   });
 

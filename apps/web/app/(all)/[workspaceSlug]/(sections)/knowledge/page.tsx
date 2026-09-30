@@ -16,6 +16,7 @@ import { getPageName } from "@plane/utils";
 // components
 import { PageHead } from "@/components/core/page-title";
 import { useCreateWikiPage } from "@/components/wiki/hooks/use-create-wiki-page";
+import { WIKI_PAGES_KEY } from "@/components/wiki/swr-keys";
 // hooks
 import { EPageStoreType, usePageStore } from "@/hooks/store";
 
@@ -29,7 +30,7 @@ function KnowledgePage() {
   const { data, loader, fetchPagesList, canCurrentUserCreatePage } = usePageStore(EPageStoreType.WORKSPACE);
   const { createWikiPage, isCreating } = useCreateWikiPage();
   // the sidebar fetches with the same key, so this shares its request
-  useSWR(slug ? `WIKI_PAGES_${slug}` : null, slug ? () => fetchPagesList(slug) : null, { revalidateOnFocus: true });
+  useSWR(slug ? WIKI_PAGES_KEY(slug) : null, slug ? () => fetchPagesList(slug) : null, { revalidateOnFocus: true });
   // derived values
   // computed on render: `data` is a MobX observable, so a memo keyed on it would never refresh
   const recentPages = orderBy(

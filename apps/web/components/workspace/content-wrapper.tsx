@@ -11,6 +11,7 @@ import { cn } from "@plane/utils";
 import { AppRailRoot } from "@/components/navigation";
 import { useAppRailVisibility } from "@/lib/app-rail";
 import { TopNavigationRoot } from "@/components/navigation/top-navigation-root";
+import { WikiDataPrefetch } from "@/components/wiki/wiki-data-prefetch";
 
 export const WorkspaceContentWrapper = observer(function WorkspaceContentWrapper({
   children,
@@ -26,6 +27,8 @@ export const WorkspaceContentWrapper = observer(function WorkspaceContentWrapper
       <div className="relative flex size-full overflow-hidden">
         {/* Conditionally render AppRailRoot based on context */}
         {shouldRenderAppRail && <AppRailRoot />}
+        {/* Warms the Knowledge data in the background so its first visit is not a cold fetch */}
+        {shouldRenderAppRail && <WikiDataPrefetch />}
         <div
           className={cn(
             "relative size-full flex-grow overflow-hidden pr-2 pb-2 pl-2 transition-all duration-300 ease-in-out",
