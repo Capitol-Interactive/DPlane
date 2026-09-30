@@ -13,13 +13,14 @@ The app rail is the narrow icon column at the far left of the workspace (Asana/P
 | Knowledge | `/:workspace/knowledge`  | The wiki, see [knowledge-wiki.md](knowledge-wiki.md) |
 | People    | `/:workspace/people`     | Placeholder                                          |
 | Clients   | `/:workspace/clients`    | Placeholder                                          |
-| More      | (menu)                   | Rail display mode (icon only / icon + name), undock  |
+| More      | (menu)                   | Rail display mode (icon only / icon + name)          |
 | Settings  | `/:workspace/settings`   | Workspace settings                                   |
 
 ## Where things live
 
 - `apps/web/app/(all)/[workspaceSlug]/layout.tsx` turns the rail on (`<AppRailVisibilityProvider isEnabled>`).
-  Visibility and the docked/undocked state are handled in `apps/web/lib/app-rail/`.
+  The rail is always shown when enabled and cannot be hidden by the user: nothing outside the rail could bring
+  it back, and a stored "collapsed" flag from the old undock option is ignored (`apps/web/lib/app-rail/provider.tsx`).
 - `apps/web/components/navigation/app-rail-hoc.tsx` defines the items (label, icon, href, active check).
 - `apps/web/components/navigation/app-rail-root.tsx` renders the rail; `app-rail-more-menu.tsx` is the More menu.
 - `apps/web/hooks/use-workspace-paths.ts` decides which item is active. Add an `isXPath` flag here for a new
