@@ -45,6 +45,19 @@ parent clears the collection.
 workspace slug and the user's cookie. The web app connects with `documentType: "workspace_page"` and no
 `projectId`.
 
+### Load speed
+
+- The wiki pages and collections are prefetched in the background about 1.5 s after the workspace opens
+  (`apps/web/components/wiki/wiki-data-prefetch.tsx`, mounted in `WorkspaceContentWrapper`), so the first visit
+  to Knowledge finds them already in the store. Members and admins only; guests only see their own pages.
+  The sidebar, the Wiki home and the prefetch share the SWR keys in `apps/web/components/wiki/swr-keys.ts`.
+- While the first load is running the Collections section shows skeleton rows instead of "No collections yet".
+- With 2 s of simulated API latency, click-to-tree went from 2.9 s to 1.0 s (dev server, so absolute numbers are
+  inflated). Server time itself is small: production `GET /wiki/pages/` and `/wiki/collections/` took 29-51 ms.
+- Opening a page is still slower than the Knowledge home: it loads the editor bundle and then tries the live
+  websocket, which fails when `apps/live` is not deployed and falls back to loading the saved content. Deploying
+  the live server is the real fix.
+
 ### Deployment note
 
 Real-time collaboration needs `apps/live` running and `VITE_LIVE_BASE_URL` (baked into the web build) pointing
