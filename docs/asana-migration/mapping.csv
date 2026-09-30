@@ -1,0 +1,81 @@
+project,plane_key,plane_issue_id,asana_gid,asana_url,parent_plane_key,module,name
+Fundraising,FUND-1,0cd8a074-7578-4d1c-b213-25749c433f0b,1213191854695303,https://app.asana.com/0/1213084889256278/1213191854695303,,,https://www.obviouslydc.com/business-funding-opportunities
+Account Management,ACCT-1,a0d649f6-6431-4efb-bfbe-4a23ade5c981,1213270538743570,https://app.asana.com/0/1213270539233696/1213270538743570,,Collateral,Kick-off Email Template
+Account Management,ACCT-2,b7d36a4d-6c28-4be4-b759-50c0f55ed180,1213270538743571,https://app.asana.com/0/1213270539233696/1213270538743571,,Collateral,Asset Request Form
+Account Management,ACCT-3,be290546-4948-442e-bb71-70b2d67fe7da,1213270538743572,https://app.asana.com/0/1213270539233696/1213270538743572,,Collateral,Onboarding Workflow
+Account Management,ACCT-4,2b98834f-5f66-406e-ab03-143cbd90210a,1213270538743574,https://app.asana.com/0/1213270539233696/1213270538743574,,Collateral,Genie Prompt Guide
+Account Management,ACCT-5,51f58d35-257d-45f1-8e5f-f4ac5b11a57e,1213270538743575,https://app.asana.com/0/1213270539233696/1213270538743575,,Collateral,Apollo Email Automation Templates
+Account Management,ACCT-6,e84c0a22-f957-40bb-a26b-ba555d1272ea,1213270538743576,https://app.asana.com/0/1213270539233696/1213270538743576,,Collateral,Admin 101 Video Scripts
+Account Management,ACCT-7,d0867312-815d-4af9-a749-42ce1e8e443d,1213270538743577,https://app.asana.com/0/1213270539233696/1213270538743577,,Collateral,Post-Event Impact Report Template
+Account Management,ACCT-8,46266af2-2422-4dc3-a366-d6c139ce09ad,1213270538743578,https://app.asana.com/0/1213270539233696/1213270538743578,,Collateral,Case Study Template
+Account Management,ACCT-9,dc62e12b-bc6b-4a9a-b57e-acdd675ddc7d,1213270538743579,https://app.asana.com/0/1213270539233696/1213270538743579,,Collateral,Renewal Reminder Email
+Account Management,ACCT-10,f98de8f1-5d3c-43ab-b009-033c0b8a7158,1213225629589596,https://app.asana.com/0/1213270539233696/1213225629589596,,Collateral,Communication Cadence
+Account Management,ACCT-11,a48df105-78ba-456d-9093-58e7f7b8965d,1213225629589597,https://app.asana.com/0/1213270539233696/1213225629589597,,Collateral,Troubleshooting Protocol
+Account Management,ACCT-12,42ba48d7-b360-45d8-ac8e-f2cd2a378ad7,1213225629589598,https://app.asana.com/0/1213270539233696/1213225629589598,,Collateral,CRM Guidelines
+Sales,SALES-1,90db838c-e6bc-412a-9e14-5f6537d1a4bb,1213076761138198,https://app.asana.com/0/1213099897298811/1213076761138198,,Core Sales Documents,Ideal Customer Profile (ICP)
+Sales,SALES-2,36b65fb2-38b7-46a5-b73d-44116655ad1d,1213076761138199,https://app.asana.com/0/1213099897298811/1213076761138199,,Core Sales Documents,Value Proposition / Pitch Deck
+Sales,SALES-3,2c8e8041-9f02-4419-a70c-e2d7d7fb7bd0,1213076761138200,https://app.asana.com/0/1213099897298811/1213076761138200,,Core Sales Documents,One-Pagers / Leave-Behinds
+Sales,SALES-4,dc3352f0-5ba2-474f-922a-6a6d6e90c044,1213076761138202,https://app.asana.com/0/1213099897298811/1213076761138202,,Core Sales Documents,Pricing Sheet
+Sales,SALES-5,98583325-5f94-4bf8-8519-0d18ecfd440b,1213076761138203,https://app.asana.com/0/1213099897298811/1213076761138203,,Core Sales Documents,Discovery Call Script
+Sales,SALES-6,cc286263-0d40-407f-bfa6-12e2f949dbfa,1213076761138204,https://app.asana.com/0/1213099897298811/1213076761138204,,Core Sales Documents,Demo Script/Flow
+Sales,SALES-7,18d8a574-5a3d-4195-9ca4-b5425e91547b,1213076761379758,https://app.asana.com/0/1213099897298811/1213076761379758,,Core Sales Documents,Objection Handling Doc
+Sales,SALES-8,012b01bc-22f1-423a-90c1-e6f694e8fc0c,1213076761379759,https://app.asana.com/0/1213099897298811/1213076761379759,,Core Sales Documents,Proposal/SOW Template
+Sales,SALES-9,74814673-bbc6-416e-bb96-260a87f05d02,1213270538743573,https://app.asana.com/0/1213099897298811/1213270538743573,,Core Sales Documents,Competitor Battlecards
+Sales,SALES-10,7b25185a-ca85-4917-a154-eaf7ede1d2da,1213076761379761,https://app.asana.com/0/1213099897298811/1213076761379761,,Sales Strategy,Sales System Architecture
+Sales,SALES-11,69d77c90-5c75-489e-a35c-50e40828c5eb,1213076761379762,https://app.asana.com/0/1213099897298811/1213076761379762,,Sales Strategy,CRM Setup
+Sales,SALES-12,fd50436a-2ab0-41e2-86c8-6c3b2ffb2131,1213076761379764,https://app.asana.com/0/1213099897298811/1213076761379764,,Sales Strategy,Founder Sales Playbook
+Sales,SALES-13,ff248442-a0a4-4645-8885-057d22a3b415,1213076761379765,https://app.asana.com/0/1213099897298811/1213076761379765,,Sales Strategy,LinkedIn & Social Content Strategy
+Sales,SALES-14,abbcf02d-042c-4051-8e04-afaf447a1429,1213428552078248,https://app.asana.com/0/1213099897298811/1213428552078248,,Sales Strategy,Channel Partnership Strategy
+Sales,SALES-15,d2b0bef5-8ac9-4f28-836d-c154a0fc76c5,1213428552078248:0,https://app.asana.com/0/1213099897298811/1213428552078248,SALES-14,Sales Strategy,Venue Managers
+Sales,SALES-16,2139a8d4-6723-4950-86e3-a86616b96a76,1213428552078248:1,https://app.asana.com/0/1213099897298811/1213428552078248,SALES-14,Sales Strategy,Tourism Consultants & Destination Marketing Consultants
+Sales,SALES-17,b73c019a-93db-48f8-a278-e69d70a4ff3a,1213428552078248:2,https://app.asana.com/0/1213099897298811/1213428552078248,SALES-14,Sales Strategy,Complementary Tech Vendors
+Sales,SALES-18,84e2ac75-8553-4b11-b1a7-e0bf9e1a67e7,1213428552078248:3,https://app.asana.com/0/1213099897298811/1213428552078248,SALES-14,Sales Strategy,Industry Associations & Media
+Sales,SALES-19,0e4a6c88-3069-4240-a099-b3df187624ef,1213428552078248:4,https://app.asana.com/0/1213099897298811/1213428552078248,SALES-14,Sales Strategy,Event Planning Agencies & Production Companies
+Sales,SALES-20,c0db7ce3-27e3-4211-a264-efddf234e3cf,1213428552078248:5,https://app.asana.com/0/1213099897298811/1213428552078248,SALES-14,Sales Strategy,Channel Partnership Setup
+Sales,SALES-21,2a6d4c06-17e2-4399-9b17-b63043a76de8,1213437954420938,https://app.asana.com/0/1213099897298811/1213437954420938,,Sales Strategy,Destination Pass Pricing & Features
+Sales,SALES-22,90565940-fffb-49d9-b4d3-7d5159aee435,1213076761379763,https://app.asana.com/0/1213099897298811/1213076761379763,,Apollo Setup,Apollo.io Setup (Overview)
+Sales,SALES-23,6f4a7138-b986-4942-ab26-39051b93fa0e,1213086773070537,https://app.asana.com/0/1213099897298811/1213086773070537,,Apollo Setup,Apollo: Sequence Setup
+Sales,SALES-24,5f3792b9-615f-440f-b981-55bcd8e2510c,1213152480418925,https://app.asana.com/0/1213099897298811/1213152480418925,,Apollo Setup,Apollo: Mailbox Setup
+Sales,SALES-25,58db18ec-1dd2-423e-a9d7-e8b250011c9b,1213152461215242,https://app.asana.com/0/1213099897298811/1213152461215242,,Apollo Setup,Apollo: ICP Configuration
+Sales,SALES-26,6ebd8a64-6fa9-4b81-8d5d-2464b028d07d,1213086773738856,https://app.asana.com/0/1213099897298811/1213086773738856,,Apollo Setup,Apollo: Lists & Segmentation
+Sales,SALES-27,f2cfbc52-2453-457f-bd0d-a459ad3f52f9,1213152482918719,https://app.asana.com/0/1213099897298811/1213152482918719,,Apollo Setup,Apollo: Personas
+Sales,SALES-28,cee0c51c-04d4-4eee-82bd-eff91ba05078,1213145657167163,https://app.asana.com/0/1213099897298811/1213145657167163,,Apollo Setup,Apollo Phase 5: Workflow Automation Setup
+Sales,SALES-29,d23a73b2-ae71-4717-ab96-7f1fe671e2aa,1213702403263230,https://app.asana.com/0/1213099897298811/1213702403263230,,Outreach,Cold Outreach Touch Pattern
+Sales,SALES-30,7fdbd6ec-053b-4668-a477-7d5ed371506f,1213735401990190,https://app.asana.com/0/1213099897298811/1213735401990190,,Outreach,Email Only Workflow
+Sales,SALES-31,d1507d4e-d1f8-4b49-8b71-6d8d01fedefc,1213735401990190:0,https://app.asana.com/0/1213099897298811/1213735401990190,SALES-30,Outreach,Sequence 1: Event Planner Outreach
+Sales,SALES-32,b433afa9-1e63-4593-86a4-0f5805a000d9,1213735401990190:1,https://app.asana.com/0/1213099897298811/1213735401990190,SALES-30,Outreach,Sequence 2: Venue Marketing Outreach
+Sales,SALES-33,ce22fef0-4772-4bab-8a25-7af4f84f615a,1213735401990190:2,https://app.asana.com/0/1213099897298811/1213735401990190,SALES-30,Outreach,Sequence 3: Association Outreach
+Sales,SALES-34,7a4406c7-c5fa-4297-83bc-2c2fc40e0fca,1213735401990190:3,https://app.asana.com/0/1213099897298811/1213735401990190,SALES-30,Outreach,Sequence 4: DevRel Outreach
+Sales,SALES-35,19d6246b-bfc0-4cab-899c-5f0678d48372,1213735401990190:4,https://app.asana.com/0/1213099897298811/1213735401990190,SALES-30,Outreach,Sequence 5: Museum Outreach
+Sales,SALES-36,fcdfcd88-afce-4081-862d-d87b66f03b13,1213735401990190:5,https://app.asana.com/0/1213099897298811/1213735401990190,SALES-30,Outreach,Sequence 6: Festival Outreach
+Sales,SALES-37,34734c07-8f1a-4a00-bfed-ac95820092dc,1213735401990190:6,https://app.asana.com/0/1213099897298811/1213735401990190,SALES-30,Outreach,Sequence 7: Higher Ed Outreach
+Sales,SALES-38,a6caa5eb-42d4-4fca-83de-63aea05edf1c,1213735401990190:7,https://app.asana.com/0/1213099897298811/1213735401990190,SALES-30,Outreach,Sequence 8: Corporate L&D Outreach
+Sales,SALES-39,e7f73914-c261-46bb-9c75-9d7a49b527ed,1213735401990190:8,https://app.asana.com/0/1213099897298811/1213735401990190,SALES-30,Outreach,Sequence 9: Sports & Entertainment Outreach
+Sales,SALES-40,acea4430-4fbe-4aaa-b1d7-da13f3865c71,1213735401990190:9,https://app.asana.com/0/1213099897298811/1213735401990190,SALES-30,Outreach,Sequence 10: Religious Org Outreach
+Sales,SALES-41,fc52b7ce-18f7-4c6d-99c5-1479a7336c90,1213735401990192,https://app.asana.com/0/1213099897298811/1213735401990192,,Outreach,Multichannel Workflow
+Sales,SALES-42,d3010d77-99ec-4c07-827d-b0ec701b495e,1213735401990192:0,https://app.asana.com/0/1213099897298811/1213735401990192,SALES-41,Outreach,Sequence 1 (Multi-Channel): Event Planner Outreach
+Sales,SALES-43,cb008193-ac08-4f20-a399-b60db9a5fe42,1213735401990192:1,https://app.asana.com/0/1213099897298811/1213735401990192,SALES-41,Outreach,Sequence 2 (Multi-Channel): Venue Marketing Outreach
+Sales,SALES-44,9fc7c0be-fb1e-45c1-944e-c1befb5dc047,1213735401990192:2,https://app.asana.com/0/1213099897298811/1213735401990192,SALES-41,Outreach,Sequence 3 (Multi-Channel): Association Outreach
+Sales,SALES-45,35add11e-aa92-448f-b36d-e89552b1bd55,1213735401990192:3,https://app.asana.com/0/1213099897298811/1213735401990192,SALES-41,Outreach,Sequence 4 (Multi-Channel): DevRel Outreach
+Sales,SALES-46,45bf8570-b88c-4735-aed1-a5fcf28ff0cf,1213735401990192:4,https://app.asana.com/0/1213099897298811/1213735401990192,SALES-41,Outreach,Sequence 5 (Multi-Channel): Museum Outreach
+Sales,SALES-47,732d24e3-40d9-4da1-857b-7decf96a3043,1213735401990192:5,https://app.asana.com/0/1213099897298811/1213735401990192,SALES-41,Outreach,Sequence 6 (Multi-Channel): Festival Outreach
+Sales,SALES-48,5c96a8a0-0206-4637-a07c-f618d38d1d1f,1213735401990192:6,https://app.asana.com/0/1213099897298811/1213735401990192,SALES-41,Outreach,Sequence 7 (Multi-Channel): Higher Ed Outreach
+Sales,SALES-49,54ffe395-cdb9-46fd-bcca-343a94d9408a,1213735401990192:7,https://app.asana.com/0/1213099897298811/1213735401990192,SALES-41,Outreach,Sequence 8 (Multi-Channel): Corporate L&D Outreach
+Sales,SALES-50,10dcae76-3e47-485f-9391-46da6688425b,1213735401990192:8,https://app.asana.com/0/1213099897298811/1213735401990192,SALES-41,Outreach,Sequence 9 (Multi-Channel): Sports & Entertainment Outreach
+Sales,SALES-51,c518a7f6-7c66-4126-a7c3-23643bdbad30,1213735401990192:9,https://app.asana.com/0/1213099897298811/1213735401990192,SALES-41,Outreach,Sequence 10 (Multi-Channel): Religious Org Outreach
+Sales,SALES-52,03560e1b-b88f-4ac8-8ef3-e84b8fbc428c,1213726305188598,https://app.asana.com/0/1213099897298811/1213726305188598,,Outreach,Nurture Workflow
+Sales,SALES-53,83864dd4-f586-4b0e-bec8-2854fda58b0c,1213726305188598:0,https://app.asana.com/0/1213099897298811/1213726305188598,SALES-52,Outreach,Sequence 11: Website Visitor Nurture
+Sales,SALES-54,3ad0cb9e-da9a-4d85-9d8d-99e2728a7497,1213726305188598:1,https://app.asana.com/0/1213099897298811/1213726305188598,SALES-52,Outreach,Sequence 12: Re-engagement (Stale Leads)
+Sales,SALES-55,211f7130-d869-4509-bb63-91615fae0633,1213726305188598:2,https://app.asana.com/0/1213099897298811/1213726305188598,SALES-52,Outreach,Sequence 13: Post-Event Follow-up
+Sales,SALES-56,f1d114de-3e06-4e49-87f5-436e13ea600e,1213726305188598:3,https://app.asana.com/0/1213099897298811/1213726305188598,SALES-52,Outreach,Sequence 11 (Multi-Channel): Website Visitor Nurture
+Sales,SALES-57,26e62545-8b00-42a6-9cdc-a1b2a1996c05,1213726305188598:4,https://app.asana.com/0/1213099897298811/1213726305188598,SALES-52,Outreach,Sequence 12 (Multi-Channel): Re-engagement (Stale Leads)
+Sales,SALES-58,e9f077d6-2af3-465b-83bd-896bb6dbd554,1213726305188598:5,https://app.asana.com/0/1213099897298811/1213726305188598,SALES-52,Outreach,Sequence 13 (Multi-Channel): Post-Event Follow-up
+Sales,SALES-59,7181ba29-be6f-4d06-a366-05d40692c162,1213909503503385,https://app.asana.com/0/1213099897298811/1213909503503385,,Outreach,Clone & Configure Apollo Sequences (A–G)
+Sales,SALES-60,170834d3-2f52-4aa2-81d0-e844f9483d07,1213909503503388,https://app.asana.com/0/1213099897298811/1213909503503388,,Outreach,Outreach Playbook
+Sales,SALES-61,b54dd8db-2bb5-4fbf-b7e0-5bb23df3a7de,1213909503503388:0,https://app.asana.com/0/1213099897298811/1213909503503388,SALES-60,Outreach,"Seq A: Agency / PCO Champions (Email Only, 5 steps)"
+Sales,SALES-62,c35074cc-7008-45f3-808c-b152f5dfbbb4,1213909503503388:1,https://app.asana.com/0/1213099897298811/1213909503503388,SALES-60,Outreach,"Seq B: Association Champions (Email Only, 5 steps) — LAUNCH FIRST"
+Sales,SALES-63,26d70584-e484-4772-9d7d-ccec9965e767,1213909503503388:2,https://app.asana.com/0/1213099897298811/1213909503503388,SALES-60,Outreach,"Seq C: Corporate Champions (Email Only, 5 steps)"
+Sales,SALES-64,ef4d910e-a7c4-45e6-9354-182b71a66f72,1213909503503388:3,https://app.asana.com/0/1213099897298811/1213909503503388,SALES-60,Outreach,"Seq D: DMO Champions (Email Only, 4 steps) — Q3–Q4"
+Sales,SALES-65,855a4679-d395-4416-abe0-c005859fe177,1213909503503388:4,https://app.asana.com/0/1213099897298811/1213909503503388,SALES-60,Outreach,"Seq E: Agency / PCO Decision Makers (Multichannel, 10 steps) — Weeks 5-6"
+Sales,SALES-66,0cebc272-4a44-4396-b6c9-af86e81fc9d7,1213909503503388:5,https://app.asana.com/0/1213099897298811/1213909503503388,SALES-60,Outreach,"Seq F: Association Decision Makers (Multichannel, 9 steps) — Weeks 3-4"
+Sales,SALES-67,26bb4287-0c12-4a06-834e-c23e7d534c6d,1213909503503388:6,https://app.asana.com/0/1213099897298811/1213909503503388,SALES-60,Outreach,"Seq G: Corporate Decision Makers (Multichannel, 9 steps) — Weeks 7-8"
