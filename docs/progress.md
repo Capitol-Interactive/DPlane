@@ -5,13 +5,22 @@ current. Feature details live in their own docs.
 
 ## Status
 
-| Area                                                                   | Status                               | Doc                                                  |
-| ---------------------------------------------------------------------- | ------------------------------------ | ---------------------------------------------------- |
-| App rail (Work, Agents, Strategy, Knowledge, People, Clients, More)    | Done; four sections are placeholders | [app-rail.md](app-rail.md)                           |
-| Knowledge wiki: collections, nested pages, favorites, my pages, editor | Done                                 | [knowledge-wiki.md](knowledge-wiki.md)               |
-| Wiki: shared with me, AI panel, publishing, comments, search           | Not started                          | [knowledge-wiki.md](knowledge-wiki.md#not-built-yet) |
-| Agents, Strategy, People, Clients sections                             | Placeholders only                    | [app-rail.md](app-rail.md#known-gaps)                |
-| i18n for rail and wiki sidebar labels                                  | Not started                          |                                                      |
+| Area                                                                   | Status                               | Doc                                                     |
+| ---------------------------------------------------------------------- | ------------------------------------ | ------------------------------------------------------- |
+| App rail (Work, Agents, Strategy, Knowledge, People, Clients, More)    | Done; four sections are placeholders | [app-rail.md](app-rail.md)                              |
+| Knowledge wiki: collections, nested pages, favorites, my pages, editor | Done                                 | [knowledge-wiki.md](knowledge-wiki.md)                  |
+| Wiki: API token endpoints (v1)                                         | Done                                 | [knowledge-wiki.md](knowledge-wiki.md#api-token-access) |
+| Wiki: shared with me, AI panel, publishing, comments, search           | Not started                          | [knowledge-wiki.md](knowledge-wiki.md#not-built-yet)    |
+| Agents, Strategy, People, Clients sections                             | Placeholders only                    | [app-rail.md](app-rail.md#known-gaps)                   |
+| i18n for rail and wiki sidebar labels                                  | Not started                          |                                                         |
+
+## 2026-09-30 (wiki API tokens)
+
+- Added token-authenticated wiki endpoints under `/api/v1/workspaces/<slug>/wiki/` so scripts can create and edit
+  Knowledge content with a Plane API token (collections, pages, archive, lock, duplicate, versions). Shared
+  helpers moved to `apps/api/plane/utils/wiki.py`. Content writes clear the Yjs binary so the editor rebuilds from
+  the HTML. Open editors and browsers that already opened the page can hide or merge an API edit; see
+  [API token access](knowledge-wiki.md#api-token-access).
 
 ## 2026-09-30 (Knowledge load speed)
 
