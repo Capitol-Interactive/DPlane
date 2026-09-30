@@ -19,16 +19,16 @@ import { EPageStoreType, usePage, usePageStore } from "@/hooks/store";
 
 const storeType = EPageStoreType.WORKSPACE;
 
-export const WikiHeader = observer(function WikiHeader() {
+const WikiPageHeader = observer(function WikiPageHeader({ pageId }: { pageId: string }) {
   // router
-  const { workspaceSlug, pageId } = useParams();
+  const { workspaceSlug } = useParams();
   // store hooks
   const { getPageAncestorIds, getPageById, getCollectionById, getRootPageId } = usePageStore(storeType);
-  const page = usePage({ pageId: pageId?.toString() ?? "", storeType });
+  const page = usePage({ pageId, storeType });
   // derived values
   const homeHref = `/${workspaceSlug}/knowledge`;
-  const ancestorIds = pageId ? getPageAncestorIds(pageId.toString()) : [];
-  const rootPageId = pageId ? getRootPageId(pageId.toString()) : undefined;
+  const ancestorIds = getPageAncestorIds(pageId);
+  const rootPageId = getRootPageId(pageId);
   const collection = rootPageId ? getCollectionById(getPageById(rootPageId)?.collection ?? "") : undefined;
 
   return (
@@ -89,4 +89,36 @@ export const WikiHeader = observer(function WikiHeader() {
       )}
     </Header>
   );
+});
+
+const WikiHomeHeader = observer(function WikiHomeHeader() {
+  const { workspaceSlug } = useParams();
+
+  return (
+    <Header>
+      <Header.LeftItem>
+        <div>
+          <Breadcrumbs>
+            <Breadcrumbs.Item
+              component={
+                <BreadcrumbLink
+                  label="Wiki"
+                  href={`/${workspaceSlug}/knowledge`}
+                  icon={<LibraryOutline className="size-4 text-tertiary" />}
+                />
+              }
+              isLast
+            />
+          </Breadcrumbs>
+        </div>
+      </Header.LeftItem>
+    </Header>
+  );
+});
+
+export const WikiHeader = observer(function WikiHeader() {
+  const { pageId } = useParams();
+  // the page header needs a page id, the wiki home does not have one
+  if (pageId) return <WikiPageHeader pageId={pageId.toString()} />;
+  return <WikiHomeHeader />;
 });

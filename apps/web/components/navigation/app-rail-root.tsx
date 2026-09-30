@@ -35,7 +35,7 @@ export const AppRailRoot = observer(() => {
   // derived values
   const isWorkspaceSettingsPath = pathname.includes(`/${workspaceSlug}/settings`) && !projectId;
   const showLabel = preferences.displayMode === "icon_with_label";
-  const railWidth = showLabel ? "3.75rem" : "3rem";
+  const railWidth = showLabel ? "4.25rem" : "3rem";
 
   return (
     <div

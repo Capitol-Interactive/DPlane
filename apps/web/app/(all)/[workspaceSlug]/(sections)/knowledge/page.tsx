@@ -4,7 +4,6 @@
  * See the LICENSE file for details.
  */
 
-import { useMemo } from "react";
 import { orderBy } from "lodash-es";
 import { observer } from "mobx-react";
 import Link from "next/link";
@@ -32,15 +31,12 @@ function KnowledgePage() {
   // the sidebar fetches with the same key, so this shares its request
   useSWR(slug ? `WIKI_PAGES_${slug}` : null, slug ? () => fetchPagesList(slug) : null, { revalidateOnFocus: true });
   // derived values
-  const recentPages = useMemo(
-    () =>
-      orderBy(
-        Object.values(data).filter((page) => page.id && !page.archived_at),
-        (page) => new Date(page.updated_at ?? 0).getTime(),
-        "desc"
-      ).slice(0, RECENT_PAGES_LIMIT),
-    [data]
-  );
+  // computed on render: `data` is a MobX observable, so a memo keyed on it would never refresh
+  const recentPages = orderBy(
+    Object.values(data).filter((page) => page.id && !page.archived_at),
+    (page) => new Date(page.updated_at ?? 0).getTime(),
+    "desc"
+  ).slice(0, RECENT_PAGES_LIMIT);
 
   return (
     <>
