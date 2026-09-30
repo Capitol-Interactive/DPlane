@@ -36,8 +36,9 @@ export const AppRailVisibilityProvider = observer(function AppRailVisibilityProv
     setIsCollapsed(!isCollapsed);
   }, [isCollapsed, setIsCollapsed]);
 
-  // Compute final visibility: enabled and not collapsed
-  const shouldRenderAppRail = isEnabled && !isCollapsed;
+  // The rail carries the app navigation and nothing outside it can dock it again, so a stored
+  // "collapsed" value (from when undocking was possible) must not hide it.
+  const shouldRenderAppRail = isEnabled;
 
   const value: IAppRailVisibilityContext = useMemo(
     () => ({

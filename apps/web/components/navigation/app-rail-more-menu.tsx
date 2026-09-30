@@ -7,19 +7,17 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import { MoreHorizontalOutline } from "@makeplane/propel/icons";
-import { Menu, MenuContent, MenuItem, MenuSeparator, MenuTrigger } from "@makeplane/propel/components/menu";
+import { Menu, MenuContent, MenuItem, MenuTrigger } from "@makeplane/propel/components/menu";
 // components
 import { AppSidebarItem } from "@/components/sidebar/sidebar-item";
 // hooks
 import { useAppRailPreferences } from "@/hooks/use-navigation-preferences";
-import { useAppRailVisibility } from "@/lib/app-rail/context";
 
 export const AppRailMoreMenu = observer(function AppRailMoreMenu({ showLabel }: { showLabel: boolean }) {
   // states
   const [isOpen, setIsOpen] = useState(false);
   // hooks
   const { preferences, updateDisplayMode } = useAppRailPreferences();
-  const { toggleAppRail } = useAppRailVisibility();
 
   return (
     <Menu onOpenChange={setIsOpen}>
@@ -47,8 +45,6 @@ export const AppRailMoreMenu = observer(function AppRailMoreMenu({ showLabel }: 
           onClick={() => updateDisplayMode("icon_with_label")}
           selected={preferences.displayMode === "icon_with_label"}
         />
-        <MenuSeparator />
-        <MenuItem label="Undock App Rail" onClick={toggleAppRail} />
       </MenuContent>
     </Menu>
   );

@@ -12,7 +12,6 @@ import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
-  ContextMenuSeparator,
   ContextMenuTrigger,
 } from "@makeplane/propel/components/context-menu";
 import { cn } from "@plane/utils";
@@ -20,7 +19,6 @@ import { cn } from "@plane/utils";
 import { AppSidebarItem } from "@/components/sidebar/sidebar-item";
 // hooks
 import { useAppRailPreferences } from "@/hooks/use-navigation-preferences";
-import { useAppRailVisibility } from "@/lib/app-rail/context";
 // local imports
 import { AppRailMoreMenu } from "./app-rail-more-menu";
 import { AppSidebarItemsRoot } from "./items-root";
@@ -31,7 +29,6 @@ export const AppRailRoot = observer(() => {
   const pathname = usePathname();
   // preferences
   const { preferences, updateDisplayMode } = useAppRailPreferences();
-  const { isCollapsed, toggleAppRail } = useAppRailVisibility();
   // derived values
   const isWorkspaceSettingsPath = pathname.includes(`/${workspaceSlug}/settings`) && !projectId;
   const showLabel = preferences.displayMode === "icon_with_label";
@@ -80,8 +77,6 @@ export const AppRailRoot = observer(() => {
             label="Icon with name"
             selected={preferences.displayMode === "icon_with_label"}
           />
-          <ContextMenuSeparator />
-          <ContextMenuItem onClick={toggleAppRail} label={isCollapsed ? "Dock App Rail" : "Undock App Rail"} />
         </ContextMenuContent>
       </ContextMenu>
     </div>
