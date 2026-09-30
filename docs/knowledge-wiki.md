@@ -45,6 +45,12 @@ parent clears the collection.
 workspace slug and the user's cookie. The web app connects with `documentType: "workspace_page"` and no
 `projectId`.
 
+### Deployment note
+
+Real-time collaboration needs `apps/live` running and `VITE_LIVE_BASE_URL` (baked into the web build) pointing
+at it. As of 2026-09-30 the live server is not deployed in production (see `docs/deployment-brief.md`), so wiki
+pages there can be listed, created and opened, but not edited collaboratively until it is.
+
 ## Web app
 
 - Services: `apps/web/services/page/{workspace-page,workspace-page-version,wiki-collection}.service.ts`.

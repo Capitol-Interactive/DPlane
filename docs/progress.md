@@ -25,4 +25,6 @@ current. Feature details live in their own docs.
 - Verified with 21 API contract tests, live-server tests, web typecheck/lint, and a manual browser pass
   (create collection, create page in it, favorite, add sub page, delete-collection dialog). Not verified:
   two people editing the same page at once.
+- Production caveat: `apps/live` is not deployed, so wiki collaboration will not work there yet. Migration
+  `0123` runs automatically via the Railway `migrator` service on the next production deploy.
 - Known follow-ups are listed in [knowledge-wiki.md](knowledge-wiki.md#not-built-yet).
