@@ -20,6 +20,31 @@ def get_view_props():
     return {"full_width": False}
 
 
+class WikiCollection(BaseModel):
+    """A workspace-level grouping of wiki pages (Knowledge section)."""
+
+    DEFAULT_SORT_ORDER = 65535
+
+    workspace = models.ForeignKey("db.Workspace", on_delete=models.CASCADE, related_name="wiki_collections")
+    name = models.CharField(max_length=255)
+    owned_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="wiki_collections",
+    )
+    logo_props = models.JSONField(default=dict)
+    sort_order = models.FloatField(default=DEFAULT_SORT_ORDER)
+
+    class Meta:
+        verbose_name = "Wiki Collection"
+        verbose_name_plural = "Wiki Collections"
+        db_table = "wiki_collections"
+        ordering = ("sort_order", "-created_at")
+
+    def __str__(self):
+        return f"{self.workspace_id} <{self.name}>"
+
+
 class Page(BaseModel):
     PRIVATE_ACCESS = 1
     PUBLIC_ACCESS = 0
@@ -48,7 +73,16 @@ class Page(BaseModel):
     is_locked = models.BooleanField(default=False)
     view_props = models.JSONField(default=get_view_props)
     logo_props = models.JSONField(default=dict)
+    # `is_global=True` pages with no ProjectPage rows are workspace wiki pages
     is_global = models.BooleanField(default=False)
+    # Only set on root wiki pages; nested pages inherit the collection through `parent`
+    collection = models.ForeignKey(
+        "db.WikiCollection",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="pages",
+    )
     projects = models.ManyToManyField("db.Project", related_name="pages", through="db.ProjectPage")
     moved_to_page = models.UUIDField(null=True, blank=True)
     moved_to_project = models.UUIDField(null=True, blank=True)

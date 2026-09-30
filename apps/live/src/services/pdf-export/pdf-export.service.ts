@@ -40,8 +40,8 @@ export class PdfExportService extends Effect.Service<PdfExportService>()("PdfExp
     /**
      * Determines document type
      */
-    getDocumentType: (_input: PdfExportInput): TDocumentTypes => {
-      return "project_page";
+    getDocumentType: (input: PdfExportInput): TDocumentTypes => {
+      return input.projectId ? "project_page" : "workspace_page";
     },
 
     /**
@@ -164,11 +164,14 @@ export class PdfExportService extends Effect.Service<PdfExportService>()("PdfExp
         // Resolve URLs first
         const resolvedUrlMap = yield* tryAsync(
           async () => {
+            const urls = await Promise.all(
+              assetIds.map((assetId) => pageService.resolveImageAssetUrl?.(workspaceSlug, assetId, projectId))
+            );
             const urlMap = new Map<string, string>();
-            for (const assetId of assetIds) {
-              const url = await pageService.resolveImageAssetUrl?.(workspaceSlug, assetId, projectId);
+            assetIds.forEach((assetId, index) => {
+              const url = urls[index];
               if (url) urlMap.set(assetId, url);
-            }
+            });
             return urlMap;
           },
           () => new Map<string, string>()

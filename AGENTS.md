@@ -22,6 +22,13 @@
 - **Testing**: All features require unit tests, use existing test framework per package
 - **Components**: Primitives come from the published `@makeplane/propel` npm package (`@makeplane/propel/components/*`, `elements/*`, `icons`); composite/Plane-specific components live in `@plane/blocks` (`packages/blocks`, subpath imports only, e.g. `@plane/blocks/toast`)
 
+## Docs
+
+- `docs/progress.md` - running log and status of fork-specific work (update it when you ship something)
+- `docs/app-rail.md` - the app rail and how to add a section
+- `docs/knowledge-wiki.md` - the workspace wiki (model, API, live server, web, testing)
+- `docs/linting.md` - linting
+
 ## Backend tests (Docker)
 
 The Django/pytest suite for `apps/api` runs in an isolated stack defined by `docker-compose-test.yml` at the repo root.

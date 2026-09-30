@@ -4,4 +4,9 @@
  * See the LICENSE file for details.
  */
 
-export type TPageExtended = object;
+// Fields only meaningful for nested / grouped (wiki) pages. Project pages leave them unset.
+export type TPageExtended = {
+  parent?: string | null;
+  collection?: string | null;
+  sort_order?: number;
+};

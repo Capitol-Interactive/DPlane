@@ -4,6 +4,7 @@
  * See the LICENSE file for details.
  */
 
+import { makeObservable, observable } from "mobx";
 import type { TPage, TPageExtended } from "@plane/types";
 import type { CoreRootStore } from "@/store/root.store";
 import type { TBasePageServices } from "@/store/pages/base-page";
@@ -13,10 +14,29 @@ export type TExtendedPageInstance = TPageExtended & {
 };
 
 export class ExtendedBasePage implements TExtendedPageInstance {
-  // oxlint-disable-next-line no-useless-constructor, no-unused-vars
-  constructor(store: CoreRootStore, page: TPage, services: TBasePageServices) {}
+  // wiki hierarchy, unset for project pages
+  parent: string | null | undefined;
+  collection: string | null | undefined;
+  sort_order: number | undefined;
+
+  // oxlint-disable-next-line no-unused-vars
+  constructor(store: CoreRootStore, page: TPage, services: TBasePageServices) {
+    this.parent = page?.parent;
+    this.collection = page?.collection;
+    this.sort_order = page?.sort_order;
+
+    makeObservable(this, {
+      parent: observable.ref,
+      collection: observable.ref,
+      sort_order: observable.ref,
+    });
+  }
 
   get asJSONExtended(): TExtendedPageInstance["asJSONExtended"] {
-    return {};
+    return {
+      parent: this.parent,
+      collection: this.collection,
+      sort_order: this.sort_order,
+    };
   }
 }

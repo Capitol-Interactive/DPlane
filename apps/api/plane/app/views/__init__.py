@@ -175,6 +175,15 @@ from .page.base import (
 )
 from .page.version import PageVersionEndpoint
 
+from .wiki.base import (
+    WikiCollectionViewSet,
+    WikiPageViewSet,
+    WikiPageFavoriteViewSet,
+    WikiPageDescriptionViewSet,
+    WikiPageVersionEndpoint,
+    WikiPageDuplicateEndpoint,
+)
+
 from .search.base import GlobalSearchEndpoint, SearchEndpoint
 from .search.issue import IssueSearchEndpoint
 
