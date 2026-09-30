@@ -71,6 +71,9 @@ export type TBasePageServices = {
   }>;
   restore: () => Promise<void>;
   duplicate: () => Promise<TPage>;
+  // optional: pages that are not favorited through the generic favorites API (e.g. wiki pages)
+  addToFavorites?: () => Promise<void>;
+  removeFromFavorites?: () => Promise<void>;
 };
 
 export type TPageInstance = TBasePage &
@@ -494,19 +497,20 @@ export class BasePage extends ExtendedBasePage implements TBasePage {
     runInAction(() => {
       this.is_favorite = true;
     });
-    await this.rootStore.favorite
-      .addFavorite(workspaceSlug.toString(), {
-        entity_type: "page",
-        entity_identifier: this.id,
-        project_id: projectId,
-        entity_data: { name: this.name || "" },
-      })
-      .catch((error) => {
-        runInAction(() => {
-          this.is_favorite = pageIsFavorite;
+    const request = this.services.addToFavorites
+      ? this.services.addToFavorites()
+      : this.rootStore.favorite.addFavorite(workspaceSlug.toString(), {
+          entity_type: "page",
+          entity_identifier: this.id,
+          project_id: projectId,
+          entity_data: { name: this.name || "" },
         });
-        throw error;
+    await request.catch((error) => {
+      runInAction(() => {
+        this.is_favorite = pageIsFavorite;
       });
+      throw error;
+    });
   };
 
   /**
@@ -521,7 +525,10 @@ export class BasePage extends ExtendedBasePage implements TBasePage {
       this.is_favorite = false;
     });
 
-    await this.rootStore.favorite.removeFavoriteEntity(workspaceSlug, this.id).catch((error) => {
+    const request = this.services.removeFromFavorites
+      ? this.services.removeFromFavorites()
+      : this.rootStore.favorite.removeFavoriteEntity(workspaceSlug, this.id);
+    await request.catch((error) => {
       runInAction(() => {
         this.is_favorite = pageIsFavorite;
       });

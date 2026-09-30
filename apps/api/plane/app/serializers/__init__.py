@@ -135,3 +135,5 @@ from .draft import (
     DraftIssueSerializer,
     DraftIssueDetailSerializer,
 )
+
+from .wiki import WikiCollectionSerializer, WikiPageSerializer, WikiPageDetailSerializer

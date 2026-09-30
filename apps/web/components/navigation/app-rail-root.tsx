@@ -22,6 +22,7 @@ import { AppSidebarItem } from "@/components/sidebar/sidebar-item";
 import { useAppRailPreferences } from "@/hooks/use-navigation-preferences";
 import { useAppRailVisibility } from "@/lib/app-rail/context";
 // local imports
+import { AppRailMoreMenu } from "./app-rail-more-menu";
 import { AppSidebarItemsRoot } from "./items-root";
 
 export const AppRailRoot = observer(() => {
@@ -34,7 +35,7 @@ export const AppRailRoot = observer(() => {
   // derived values
   const isWorkspaceSettingsPath = pathname.includes(`/${workspaceSlug}/settings`) && !projectId;
   const showLabel = preferences.displayMode === "icon_with_label";
-  const railWidth = showLabel ? "3.75rem" : "3rem";
+  const railWidth = showLabel ? "4.25rem" : "3rem";
 
   return (
     <div
@@ -54,6 +55,7 @@ export const AppRailRoot = observer(() => {
               })}
             >
               <AppSidebarItemsRoot showLabel={showLabel} />
+              <AppRailMoreMenu showLabel={showLabel} />
               <div className="mx-2 border-t border-strong" />
               <AppSidebarItem
                 item={{
