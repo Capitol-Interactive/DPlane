@@ -5,6 +5,7 @@
  */
 
 import { useParams, usePathname } from "next/navigation";
+import { getRailSection } from "@/lib/app-rail/sections";
 
 /**
  * Custom hook to detect different workspace paths
@@ -17,7 +18,9 @@ export const useWorkspacePaths = () => {
   const isSettingsPath = pathname.includes(`/${workspaceSlug}/settings`);
   const isWikiPath = pathname.includes(`/${workspaceSlug}/wiki`);
   const isAiPath = pathname.includes(`/${workspaceSlug}/pi-chat`);
-  const isProjectsPath = pathname.includes(`/${workspaceSlug}/`) && !isWikiPath && !isAiPath && !isSettingsPath;
+  const activeRailSectionKey = getRailSection(pathname.split(`/${workspaceSlug}/`)[1]?.split("/")[0])?.key;
+  const isProjectsPath =
+    pathname.includes(`/${workspaceSlug}/`) && !isWikiPath && !isAiPath && !isSettingsPath && !activeRailSectionKey;
   const isNotificationsPath = pathname.includes(`/${workspaceSlug}/notifications`);
 
   return {
@@ -26,5 +29,6 @@ export const useWorkspacePaths = () => {
     isAiPath,
     isProjectsPath,
     isNotificationsPath,
+    activeRailSectionKey,
   };
 };
