@@ -13,6 +13,12 @@ current. Feature details live in their own docs.
 | Agents, Strategy, People, Clients sections                             | Placeholders only                    | [app-rail.md](app-rail.md#known-gaps)                |
 | i18n for rail and wiki sidebar labels                                  | Not started                          |                                                      |
 
+## 2026-09-30 (follow-up)
+
+- Removed the "Undock App Rail" option (More menu and right-click menu) and made the rail always render when
+  enabled. Undocking unmounted the whole rail, including the only control that could re-dock it, so a user got
+  stuck (the fix also restores the rail for browsers that already stored the collapsed flag).
+
 ## 2026-09-30
 
 - Enabled the app rail and added Asana-style sections (Work, Agents, Strategy, Knowledge, People, Clients,
