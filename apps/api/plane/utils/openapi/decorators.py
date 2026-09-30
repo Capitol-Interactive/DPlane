@@ -298,6 +298,23 @@ def sticky_docs(**kwargs):
 
     return extend_schema(**_merge_schema_options(defaults, kwargs))
 
+
+def wiki_docs(**kwargs):
+    """Decorator for wiki (workspace pages and collections) endpoints"""
+    defaults = {
+        "tags": ["Wiki"],
+        "summary": "Endpoints for wiki collections and pages",
+        "parameters": [WORKSPACE_SLUG_PARAMETER],
+        "responses": {
+            401: UNAUTHORIZED_RESPONSE,
+            403: FORBIDDEN_RESPONSE,
+            404: NOT_FOUND_RESPONSE,
+        },
+    }
+
+    return extend_schema(**_merge_schema_options(defaults, kwargs))
+
+
 def estimate_docs(**kwargs):
     """Decorator for estimate-related endpoints"""
     defaults = {

@@ -68,3 +68,10 @@ from .member import (
     ProjectMemberLiteAPISerializer,
 )
 from .sticky import StickySerializer
+from .wiki import (
+    WikiCollectionSerializer,
+    WikiPageSerializer,
+    WikiPageDetailSerializer,
+    WikiPageVersionSerializer,
+    WikiPageVersionDetailSerializer,
+)
