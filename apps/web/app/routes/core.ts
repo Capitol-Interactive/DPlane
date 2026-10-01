@@ -253,6 +253,21 @@ export const coreRoutes: RouteConfigEntry[] = [
       ]),
 
       // ====================================================================
+      // RAIL SECTIONS (AGENTS, STRATEGY, KNOWLEDGE, PEOPLE, CLIENTS)
+      // ====================================================================
+      layout("./(all)/[workspaceSlug]/(rails)/layout.tsx", [
+        route(":workspaceSlug/agents/:itemKey?", "./(all)/[workspaceSlug]/(rails)/page.tsx", { id: "rail-agents" }),
+        route(":workspaceSlug/strategy/:itemKey?", "./(all)/[workspaceSlug]/(rails)/page.tsx", {
+          id: "rail-strategy",
+        }),
+        route(":workspaceSlug/knowledge/:itemKey?", "./(all)/[workspaceSlug]/(rails)/page.tsx", {
+          id: "rail-knowledge",
+        }),
+        route(":workspaceSlug/people/:itemKey?", "./(all)/[workspaceSlug]/(rails)/page.tsx", { id: "rail-people" }),
+        route(":workspaceSlug/clients/:itemKey?", "./(all)/[workspaceSlug]/(rails)/page.tsx", { id: "rail-clients" }),
+      ]),
+
+      // ====================================================================
       // SETTINGS SECTION
       // ====================================================================
       layout("./(all)/[workspaceSlug]/(settings)/layout.tsx", [

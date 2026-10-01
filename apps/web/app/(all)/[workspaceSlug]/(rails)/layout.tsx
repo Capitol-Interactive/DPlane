@@ -1,0 +1,25 @@
+/**
+ * Copyright (c) 2023-present Plane Software, Inc. and contributors
+ * SPDX-License-Identifier: AGPL-3.0-only
+ * See the LICENSE file for details.
+ */
+
+import { observer } from "mobx-react";
+import { Outlet } from "react-router";
+import { RailSidebar } from "@/components/navigation/rail-sidebar";
+
+function RailsLayout() {
+  return (
+    <div className="relative flex h-full w-full flex-col overflow-hidden rounded-lg border border-subtle">
+      <div id="full-screen-portal" className="absolute inset-0 w-full" />
+      <div className="relative flex size-full overflow-hidden">
+        <RailSidebar />
+        <main className="relative flex h-full w-full flex-col overflow-hidden bg-surface-1">
+          <Outlet />
+        </main>
+      </div>
+    </div>
+  );
+}
+
+export default observer(RailsLayout);
