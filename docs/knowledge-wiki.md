@@ -109,15 +109,19 @@ workspace slug and the user's cookie. The web app connects with `documentType: "
 - While the first load is running the Collections section shows skeleton rows instead of "No collections yet".
 - With 2 s of simulated API latency, click-to-tree went from 2.9 s to 1.0 s (dev server, so absolute numbers are
   inflated). Server time itself is small: production `GET /wiki/pages/` and `/wiki/collections/` took 29-51 ms.
-- Opening a page is still slower than the Knowledge home: it loads the editor bundle and then tries the live
-  websocket, which fails when `apps/live` is not deployed and falls back to loading the saved content. Deploying
-  the live server is the real fix.
+- Opening a page loads the editor bundle and connects to the live server's websocket. Before `apps/live` was
+  deployed (2026-10-08) the connection failed and the editor fell back to the saved content after about 10 s.
 
 ### Deployment note
 
 Real-time collaboration needs `apps/live` running and `VITE_LIVE_BASE_URL` (baked into the web build) pointing
-at it. As of 2026-09-30 the live server is not deployed in production (see `docs/deployment-brief.md`), so wiki
-pages there can be listed, created and opened, but not edited collaboratively until it is.
+at it. Since 2026-10-08 production runs it as the Railway service `live` at `https://live.destinationpass.dev`
+(see `docs/deployment-brief.md`), and pages show "Synced".
+
+If the live server is unreachable, the editor falls back to loading and saving through the API
+(`apps/web/hooks/use-page-fallback.ts`). That path has a known bug: on a page with HTML but no stored Yjs state
+(for example one created through the API), the fallback can rebuild the document from HTML more than once and
+save the text duplicated. Keep the live server up; fixing the fallback is not done.
 
 ## Web app
 

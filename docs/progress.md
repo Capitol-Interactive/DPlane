@@ -12,7 +12,17 @@ current. Feature details live in their own docs.
 | Wiki: API token endpoints (v1)                                         | Done                                 | [knowledge-wiki.md](knowledge-wiki.md#api-token-access) |
 | Wiki: shared with me, AI panel, publishing, comments, search           | Not started                          | [knowledge-wiki.md](knowledge-wiki.md#not-built-yet)    |
 | Agents, Strategy, People, Clients sections                             | Nav panels done; pages placeholders  | [app-rail.md](app-rail.md#known-gaps)                   |
+| Live collaboration server (`apps/live`) in production                  | Done                                 | [deployment-brief.md](deployment-brief.md)              |
 | i18n for rail and wiki sidebar labels                                  | Not started                          |                                                         |
+
+## 2026-10-08 (live collaboration server deployed)
+
+- Deployed `apps/live` as the Railway service `live` at `https://live.destinationpass.dev`, and pointed the web
+  app's `VITE_LIVE_BASE_URL` at it. Wiki and project pages now sync in real time and show "Synced" instead of
+  staying on "Syncing". Built from `apps/live/Dockerfile.railway`, a copy of `Dockerfile.live` without the pnpm
+  cache mounts Railway rejects.
+- Found while debugging: without a live server, the editor's fallback can save a page's text twice when the page
+  has HTML but no Yjs state. Not fixed; see [knowledge-wiki.md](knowledge-wiki.md#deployment-note).
 
 ## 2026-10-08 (section nav panels, Features settings, CI on dev)
 
