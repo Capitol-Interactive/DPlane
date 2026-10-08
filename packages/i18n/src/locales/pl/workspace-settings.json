@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Funkcje",
+        "description": "Wybór sekcji wyświetlanych w menu bocznym dla wszystkich w tej przestrzeni roboczej.",
+        "always_on": "Zawsze włączone",
+        "updated": "Funkcje zostały zaktualizowane."
+      },
       "api_tokens": {
         "heading": "Tokeny API",
         "description": "Generuj bezpieczne tokeny API, aby integrować swoje dane z zewnętrznymi systemami i aplikacjami.",

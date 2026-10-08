@@ -10,7 +10,7 @@ Create a pull request using the repo's PR template, a Plane work item ID as the 
 
 ## Workflow
 
-1. **Determine the base branch**: Default to `preview` unless the user specifies otherwise.
+1. **Determine the base branch**: Default to `dev` unless the user specifies otherwise. Work flows feature branch → `dev` → `production`; only target `production` when promoting `dev`.
 
 2. **Gather context** (in parallel):
    - `git status -s` — check for uncommitted changes

@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "功能",
+        "description": "选择为此工作区所有成员在侧边菜单中显示的部分。",
+        "always_on": "始终开启",
+        "updated": "功能已更新。"
+      },
       "api_tokens": {
         "heading": "API 令牌",
         "description": "生成安全的 API 令牌，将您的数据与外部系统和应用程序集成。",

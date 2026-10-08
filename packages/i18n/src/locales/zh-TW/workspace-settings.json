@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "功能",
+        "description": "選擇為此工作區所有成員在側邊選單中顯示的區塊。",
+        "always_on": "始終開啟",
+        "updated": "功能已更新。"
+      },
       "api_tokens": {
         "heading": "API 權杖",
         "description": "產生安全的 API 權杖，將您的資料與外部系統和應用程式整合。",

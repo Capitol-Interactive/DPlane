@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Funktionen",
+        "description": "Legen Sie fest, welche Bereiche im Seitenmenü für alle in diesem Arbeitsbereich angezeigt werden.",
+        "always_on": "Immer aktiviert",
+        "updated": "Funktionen aktualisiert."
+      },
       "api_tokens": {
         "heading": "API-Tokens",
         "description": "Generieren Sie sichere API-Tokens, um Ihre Daten mit externen Systemen und Anwendungen zu integrieren.",

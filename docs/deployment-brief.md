@@ -54,8 +54,7 @@ Wiring: the API, worker, beat and migrator get `DATABASE_URL`, `REDIS_URL`, `RAB
 
 | Branch           | Role                                                                                                             |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `preview`        | Upstream mirror. Do not commit here. Protected.                                                                  |
-| `dev`            | Integration branch. Protected.                                                                                   |
+| `dev`            | Integration branch and GitHub default branch. Protected.                                                         |
 | `production`     | What Railway deploys. Vercel should also use it as its Production Branch (set in each project's Settings > Git). |
 | feature branches | Cut from `dev`, named `<type>/<work-item-id>-<short-description>`                                                |
 
@@ -78,7 +77,7 @@ Wiring: the API, worker, beat and migrator get `DATABASE_URL`, `REDIS_URL`, `RAB
 - **`CORS_ALLOWED_ORIGINS` also feeds CSRF.** The API builds `CSRF_TRUSTED_ORIGINS` from it. Unset means CORS allows everything but trusted origins are empty.
 - **Railway Postgres, not a managed service.** It is a container with a volume: cheap and private-network, but backups and upgrades are ours.
 - **Versions beyond Plane's documented defaults.** Plane documents Postgres 15.5 and Redis 7.2.4; we run 18 and 8.2. Django 5.2 supports Postgres 18 and everything works, but it is outside documented support.
-- **`production` branch for deploys, `preview` kept clean.** Keeps upstream syncs separable from our changes.
+- **Only `dev` and `production`.** The fork no longer keeps a `preview` mirror of upstream (removed 2026-10-08). Upstream Plane is merged straight into `dev` from a sync branch (see Common tasks), which keeps upstream changes reviewable in one PR.
 
 ## Operational gotchas
 
@@ -97,8 +96,24 @@ Wiring: the API, worker, beat and migrator get `DATABASE_URL`, `REDIS_URL`, `RAB
 | Deploy a frontend change    | Merge to `production` (once Vercel's Production Branch is set).                                                                       |
 | Change a `VITE_*` value     | Edit in Vercel, then **redeploy** (values are baked in at build time).                                                                |
 | Change an API setting       | Edit the Railway variable on the service; Railway redeploys it.                                                                       |
-| Pull upstream Plane updates | Sync `preview`, merge into `dev`, resolve conflicts there, then into `production`. Not yet rehearsed.                                 |
+| Pull upstream Plane updates | See "Pulling upstream Plane" below. Not yet rehearsed.                                                                                |
 | Check health                | Railway: deployment status and HTTP logs per service. Vercel: deployments and build logs.                                             |
+
+## Pulling upstream Plane
+
+There is no `preview` mirror any more, so pull upstream from a sync branch cut from `dev`:
+
+```bash
+git remote add upstream https://github.com/makeplane/plane.git   # once
+git fetch upstream preview
+git checkout -b chore/upstream-sync-<date> origin/dev
+git merge upstream/preview      # resolve conflicts here; fork-only routes live in apps/web/app/routes/extended.ts
+git push -u origin chore/upstream-sync-<date>
+```
+
+Open a PR into `dev`, let CI run, then promote `dev` to `production` as usual. Not yet rehearsed: the repo ruleset
+that blocks branches containing merge commits (see above) may reject the sync branch, in which case the ruleset
+needs an exception for `chore/upstream-sync-*`.
 
 ## Related documentation
 

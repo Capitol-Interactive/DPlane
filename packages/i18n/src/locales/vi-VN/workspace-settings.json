@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Tính năng",
+        "description": "Chọn các mục hiển thị trong menu bên cho mọi người trong không gian làm việc này.",
+        "always_on": "Luôn bật",
+        "updated": "Đã cập nhật tính năng."
+      },
       "api_tokens": {
         "heading": "Token API",
         "description": "Tạo token API bảo mật để tích hợp dữ liệu của bạn với các hệ thống và ứng dụng bên ngoài.",

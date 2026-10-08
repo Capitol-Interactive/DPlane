@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Funzionalità",
+        "description": "Scelga quali sezioni mostrare nel menu laterale a tutti in questo spazio di lavoro.",
+        "always_on": "Sempre attivo",
+        "updated": "Funzionalità aggiornate."
+      },
       "api_tokens": {
         "heading": "Token API",
         "description": "Genera token API sicuri per integrare i tuoi dati con sistemi e applicazioni esterne.",
