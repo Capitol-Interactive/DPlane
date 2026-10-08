@@ -14,12 +14,16 @@ current. Feature details live in their own docs.
 | Agents, Strategy, People, Clients sections                             | Nav panels done; pages placeholders  | [app-rail.md](app-rail.md#known-gaps)                   |
 | i18n for rail and wiki sidebar labels                                  | Not started                          |                                                         |
 
-## 2026-10-08 (section nav panels, CI on dev)
+## 2026-10-08 (section nav panels, Features settings, CI on dev)
 
 - Agents, Strategy, People and Clients now have Asana-style sidebar panels (for example Agents: AI Teammates,
   then Workflow: Automations, Project templates, Forms, Custom fields). Each item has its own route
   (`/:workspace/<section>/<item>`) and a placeholder page; Knowledge is unchanged. Config lives in
   `apps/web/components/navigation/section-nav.ts`.
+- Workspace settings > Developer > Features lets admins hide Agents, Strategy, People and Clients from the rail
+  for the whole workspace (Work and Knowledge always on). New `Workspace.disabled_app_sections` field
+  (migration `0124`), validated in `WorkSpaceSerializer`; strings translated in all locales. See
+  [app-rail.md](app-rail.md#hiding-sections-settings--features).
 - CI pull-request and push triggers now target `dev` and `production` instead of `preview`, so PRs into `dev`
   get the web/API build and lint checks. The `create-pull-request` skill now defaults its base to `dev`.
 

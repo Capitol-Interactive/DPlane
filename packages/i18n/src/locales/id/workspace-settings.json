@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Fitur",
+        "description": "Pilih bagian yang muncul di menu samping untuk semua orang di ruang kerja ini.",
+        "always_on": "Selalu aktif",
+        "updated": "Fitur diperbarui."
+      },
       "api_tokens": {
         "heading": "Token API",
         "description": "Buat token API yang aman untuk mengintegrasikan data Anda dengan sistem dan aplikasi eksternal.",

@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Recursos",
+        "description": "Escolha quais seções aparecem no menu lateral para todos neste espaço de trabalho.",
+        "always_on": "Sempre ativado",
+        "updated": "Recursos atualizados."
+      },
       "api_tokens": {
         "heading": "Tokens de API",
         "description": "Gere tokens de API seguros para integrar seus dados com sistemas e aplicativos externos.",

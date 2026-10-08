@@ -22,6 +22,15 @@ export const extendedRoutes: RouteConfigEntry[] = [
         route(":workspaceSlug/people/:itemKey?", "./(all)/[workspaceSlug]/(sections)/people/page.tsx"),
         route(":workspaceSlug/clients/:itemKey?", "./(all)/[workspaceSlug]/(sections)/clients/page.tsx"),
       ]),
+      // Workspace settings > Features (choose which rail sections are shown)
+      layout("./(all)/[workspaceSlug]/(settings)/layout.tsx", [
+        layout("./(all)/[workspaceSlug]/(settings)/settings/(workspace)/layout.tsx", [
+          route(
+            ":workspaceSlug/settings/features",
+            "./(all)/[workspaceSlug]/(settings)/settings/(workspace)/features/page.tsx"
+          ),
+        ]),
+      ]),
     ]),
   ]),
 ];

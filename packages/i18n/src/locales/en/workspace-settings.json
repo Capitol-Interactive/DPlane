@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Features",
+        "description": "Choose which sections appear in the side menu for everyone in this workspace.",
+        "always_on": "Always on",
+        "updated": "Features updated."
+      },
       "api_tokens": {
         "heading": "Access Tokens",
         "description": "Generate secure API tokens to integrate your data with external systems and applications.",

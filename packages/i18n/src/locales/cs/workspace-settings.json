@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Funkce",
+        "description": "Vyberte, které sekce se zobrazí v postranní nabídce všem v tomto pracovním prostoru.",
+        "always_on": "Vždy zapnuto",
+        "updated": "Funkce byly aktualizovány."
+      },
       "api_tokens": {
         "heading": "API Tokeny",
         "description": "Generujte bezpečné API tokeny pro integraci vašich dat s externími systémy a aplikacemi.",

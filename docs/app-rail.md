@@ -27,6 +27,18 @@ The app rail is the narrow icon column at the far left of the workspace (Asana/P
   section **and** exclude it from `isProjectsPath`, otherwise "Work" stays highlighted.
 - `apps/web/components/navigation/app-sections.ts` lists the non-project sections (`APP_SECTIONS`).
 
+## Hiding sections (Settings > Features)
+
+Workspace admins can hide Agents, Strategy, People and Clients from the rail for everyone in the workspace under
+**Workspace settings > Developer > Features**. Work and Knowledge are always on.
+
+- Stored on the workspace as `Workspace.disabled_app_sections` (JSON list, migration `0124`), saved through the
+  existing admin-only `PATCH /api/workspaces/<slug>/`. The serializer rejects any key outside
+  `TOGGLEABLE_APP_SECTIONS` (`apps/api/plane/app/serializers/workspace.py`) and stores keys once, in rail order.
+- The web side mirrors that list in `TOGGLEABLE_APP_SECTION_KEYS` (`app-sections.ts`); keep the two in sync.
+  `app-rail-hoc.tsx` sets `shouldRender` from `isAppSectionEnabled`.
+- Hiding only removes the rail item. The section's URL still opens if someone goes to it directly.
+
 ## Adding a section
 
 1. Add the item to `app-rail-hoc.tsx` and a path flag to `use-workspace-paths.ts`.

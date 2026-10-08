@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "기능",
+        "description": "이 작업 공간의 모든 사용자에게 사이드 메뉴에 표시할 섹션을 선택합니다.",
+        "always_on": "항상 켜짐",
+        "updated": "기능이 업데이트되었습니다."
+      },
       "api_tokens": {
         "heading": "API 토큰",
         "description": "보안 API 토큰을 생성하여 데이터를 외부 시스템 및 애플리케이션과 통합합니다.",
