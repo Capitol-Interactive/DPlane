@@ -4,9 +4,8 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - "preview"
-      - "canary"
-      - "master"
+      - "dev"
+      - "production"
     types:
       - "opened"
       - "synchronize"

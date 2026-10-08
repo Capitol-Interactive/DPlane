@@ -8,11 +8,11 @@ The app rail is the narrow icon column at the far left of the workspace (Asana/P
 | Item      | Route                    | Panel                                                |
 | --------- | ------------------------ | ---------------------------------------------------- |
 | Work      | `/:workspace/` (default) | The existing projects sidebar (titled "Work")        |
-| Agents    | `/:workspace/agents`     | Placeholder                                          |
-| Strategy  | `/:workspace/strategy`   | Placeholder                                          |
+| Agents    | `/:workspace/agents`     | Nav panel, placeholder pages                         |
+| Strategy  | `/:workspace/strategy`   | Nav panel, placeholder pages                         |
 | Knowledge | `/:workspace/knowledge`  | The wiki, see [knowledge-wiki.md](knowledge-wiki.md) |
-| People    | `/:workspace/people`     | Placeholder                                          |
-| Clients   | `/:workspace/clients`    | Placeholder                                          |
+| People    | `/:workspace/people`     | Nav panel, placeholder pages                         |
+| Clients   | `/:workspace/clients`    | Nav panel, placeholder pages                         |
 | More      | (menu)                   | Rail display mode (icon only / icon + name)          |
 | Settings  | `/:workspace/settings`   | Workspace settings                                   |
 
@@ -35,9 +35,13 @@ The app rail is the narrow icon column at the far left of the workspace (Asana/P
    the extension point for fork-only routes and is merged into `core.ts` by `app/routes/helper.ts`.
 4. Give it a panel by adding an entry to `SECTION_PANELS` in
    `apps/web/app/(all)/[workspaceSlug]/(sections)/_sidebar.tsx`. Sections without one show a placeholder.
+   For a plain list of links, add the section to `SECTION_NAV` in
+   `apps/web/components/navigation/section-nav.ts` and register `SectionNavPanel`: it renders the groups, a
+   "Recent" block, and links to `/:workspace/<section>/<item>`. The section's page (`_placeholder.tsx`) shows
+   the selected item's copy; an unknown or missing item falls back to the first one.
 
 ## Known gaps
 
 - Rail labels are hardcoded English (no i18n keys yet).
-- Agents, Strategy, People and Clients are placeholders.
+- Agents, Strategy, People and Clients have nav panels (Asana-style) but every item page is a placeholder.
 - The More menu only holds rail options; there are no overflow apps yet.

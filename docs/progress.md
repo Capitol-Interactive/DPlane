@@ -11,8 +11,17 @@ current. Feature details live in their own docs.
 | Knowledge wiki: collections, nested pages, favorites, my pages, editor | Done                                 | [knowledge-wiki.md](knowledge-wiki.md)                  |
 | Wiki: API token endpoints (v1)                                         | Done                                 | [knowledge-wiki.md](knowledge-wiki.md#api-token-access) |
 | Wiki: shared with me, AI panel, publishing, comments, search           | Not started                          | [knowledge-wiki.md](knowledge-wiki.md#not-built-yet)    |
-| Agents, Strategy, People, Clients sections                             | Placeholders only                    | [app-rail.md](app-rail.md#known-gaps)                   |
+| Agents, Strategy, People, Clients sections                             | Nav panels done; pages placeholders  | [app-rail.md](app-rail.md#known-gaps)                   |
 | i18n for rail and wiki sidebar labels                                  | Not started                          |                                                         |
+
+## 2026-10-08 (section nav panels, CI on dev)
+
+- Agents, Strategy, People and Clients now have Asana-style sidebar panels (for example Agents: AI Teammates,
+  then Workflow: Automations, Project templates, Forms, Custom fields). Each item has its own route
+  (`/:workspace/<section>/<item>`) and a placeholder page; Knowledge is unchanged. Config lives in
+  `apps/web/components/navigation/section-nav.ts`.
+- CI pull-request and push triggers now target `dev` and `production` instead of `preview`, so PRs into `dev`
+  get the web/API build and lint checks. The `create-pull-request` skill now defaults its base to `dev`.
 
 ## 2026-09-30 (wiki API tokens)
 
