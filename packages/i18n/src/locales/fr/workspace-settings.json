@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Fonctionnalités",
+        "description": "Choisissez les sections affichées dans le menu latéral pour tous les membres de cet espace de travail.",
+        "always_on": "Toujours activé",
+        "updated": "Fonctionnalités mises à jour."
+      },
       "api_tokens": {
         "heading": "Jetons API",
         "description": "Générez des jetons API sécurisés pour intégrer vos données avec des systèmes et applications externes.",

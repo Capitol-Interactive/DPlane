@@ -12,15 +12,24 @@ export const extendedRoutes: RouteConfigEntry[] = [
     layout("./(all)/[workspaceSlug]/layout.tsx", [
       // App rail sections (Agents, Strategy, Knowledge, People, Clients)
       layout("./(all)/[workspaceSlug]/(sections)/layout.tsx", [
-        route(":workspaceSlug/agents", "./(all)/[workspaceSlug]/(sections)/agents/page.tsx"),
-        route(":workspaceSlug/strategy", "./(all)/[workspaceSlug]/(sections)/strategy/page.tsx"),
+        route(":workspaceSlug/agents/:itemKey?", "./(all)/[workspaceSlug]/(sections)/agents/page.tsx"),
+        route(":workspaceSlug/strategy/:itemKey?", "./(all)/[workspaceSlug]/(sections)/strategy/page.tsx"),
         // Knowledge: the workspace wiki
         layout("./(all)/[workspaceSlug]/(sections)/knowledge/layout.tsx", [
           route(":workspaceSlug/knowledge", "./(all)/[workspaceSlug]/(sections)/knowledge/page.tsx"),
           route(":workspaceSlug/knowledge/:pageId", "./(all)/[workspaceSlug]/(sections)/knowledge/[pageId]/page.tsx"),
         ]),
-        route(":workspaceSlug/people", "./(all)/[workspaceSlug]/(sections)/people/page.tsx"),
-        route(":workspaceSlug/clients", "./(all)/[workspaceSlug]/(sections)/clients/page.tsx"),
+        route(":workspaceSlug/people/:itemKey?", "./(all)/[workspaceSlug]/(sections)/people/page.tsx"),
+        route(":workspaceSlug/clients/:itemKey?", "./(all)/[workspaceSlug]/(sections)/clients/page.tsx"),
+      ]),
+      // Workspace settings > Features (choose which rail sections are shown)
+      layout("./(all)/[workspaceSlug]/(settings)/layout.tsx", [
+        layout("./(all)/[workspaceSlug]/(settings)/settings/(workspace)/layout.tsx", [
+          route(
+            ":workspaceSlug/settings/features",
+            "./(all)/[workspaceSlug]/(settings)/settings/(workspace)/features/page.tsx"
+          ),
+        ]),
       ]),
     ]),
   ]),

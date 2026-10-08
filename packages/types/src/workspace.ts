@@ -34,6 +34,8 @@ export interface IWorkspace {
   total_projects?: number;
   role: number;
   timezone: string;
+  /** App rail sections hidden for everyone in this workspace (DPlane fork) */
+  disabled_app_sections?: string[];
 }
 
 export interface IWorkspaceLite {

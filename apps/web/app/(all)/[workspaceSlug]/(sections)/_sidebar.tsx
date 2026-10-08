@@ -18,10 +18,16 @@ import { SidebarWrapper } from "@/components/sidebar/sidebar-wrapper";
 import { WikiSidebar } from "@/components/wiki/sidebar/root";
 // hooks
 import { useAppTheme } from "@/hooks/store/use-app-theme";
+// local imports
+import { SectionNavPanel } from "./_nav-panel";
 
 // Sections with their own navigation panel; the others show a placeholder until they are built
 const SECTION_PANELS: Partial<Record<TAppSectionKey, ComponentType>> = {
   knowledge: WikiSidebar,
+  agents: SectionNavPanel,
+  strategy: SectionNavPanel,
+  people: SectionNavPanel,
+  clients: SectionNavPanel,
 };
 
 export const SectionSidebar = observer(function SectionSidebar() {

@@ -21,5 +21,15 @@ export const APP_SECTIONS: TAppSection[] = [
   { key: "clients", label: "Clients", description: "Client accounts, contacts and the work delivered for them." },
 ];
 
+// Sections a workspace admin can hide from the rail in Settings > Features. Work and Knowledge always stay on.
+// Keep in sync with TOGGLEABLE_APP_SECTIONS in apps/api/plane/app/serializers/workspace.py.
+export const TOGGLEABLE_APP_SECTION_KEYS: TAppSectionKey[] = ["agents", "strategy", "people", "clients"];
+
+export const isAppSectionToggleable = (key: TAppSectionKey) => TOGGLEABLE_APP_SECTION_KEYS.includes(key);
+
+/** Whether a section shows in the rail, given the workspace's `disabled_app_sections` */
+export const isAppSectionEnabled = (key: TAppSectionKey, disabledSections: string[] | undefined) =>
+  !isAppSectionToggleable(key) || !disabledSections?.includes(key);
+
 export const getAppSectionFromPathname = (pathname: string, workspaceSlug: string | string[] | undefined) =>
   APP_SECTIONS.find((section) => pathname.includes(`/${workspaceSlug}/${section.key}`));

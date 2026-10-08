@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - "preview"
+      - "dev"
+      - "production"
     types:
       - "opened"
       - "synchronize"

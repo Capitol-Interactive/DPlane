@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Funcționalități",
+        "description": "Alegeți ce secțiuni apar în meniul lateral pentru toți membrii acestui spațiu de lucru.",
+        "always_on": "Întotdeauna activat",
+        "updated": "Funcționalitățile au fost actualizate."
+      },
       "api_tokens": {
         "heading": "Chei secrete API",
         "description": "Generează chei secrete API sigure pentru a integra datele tale cu sisteme și aplicații externe.",

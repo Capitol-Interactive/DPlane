@@ -150,6 +150,12 @@
           }
         }
       },
+      "features": {
+        "title": "Functies",
+        "description": "Kies welke secties voor iedereen in deze werkruimte in het zijmenu worden weergegeven.",
+        "always_on": "Altijd aan",
+        "updated": "Functies bijgewerkt."
+      },
       "api_tokens": {
         "heading": "Toegangstokens",
         "description": "Genereer veilige API-tokens om je gegevens te integreren met externe systemen en applicaties.",

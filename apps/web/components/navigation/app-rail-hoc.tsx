@@ -17,7 +17,9 @@ import {
   Work,
 } from "@makeplane/propel/icons";
 import type { AppSidebarItemData } from "@/components/sidebar/sidebar-item";
+import { useWorkspace } from "@/hooks/store/use-workspace";
 import { useWorkspacePaths } from "@/hooks/use-workspace-paths";
+import { isAppSectionEnabled } from "./app-sections";
 
 type WithDockItemsProps = {
   dockItems: (AppSidebarItemData & { shouldRender: boolean })[];
@@ -35,6 +37,9 @@ export function withDockItems<P extends WithDockItemsProps>(WrappedComponent: Re
       isPeoplePath,
       isClientsPath,
     } = useWorkspacePaths();
+    const { currentWorkspace } = useWorkspace();
+    // sections an admin turned off in Settings > Features
+    const disabledSections = currentWorkspace?.disabled_app_sections;
 
     const dockItems: (AppSidebarItemData & { shouldRender: boolean })[] = [
       {
@@ -49,14 +54,14 @@ export function withDockItems<P extends WithDockItemsProps>(WrappedComponent: Re
         icon: <AgentOutline className="size-5" />,
         href: `/${workspaceSlug}/agents`,
         isActive: isAgentsPath,
-        shouldRender: true,
+        shouldRender: isAppSectionEnabled("agents", disabledSections),
       },
       {
         label: "Strategy",
         icon: <InitiativeOutline className="size-5" />,
         href: `/${workspaceSlug}/strategy`,
         isActive: isStrategyPath,
-        shouldRender: true,
+        shouldRender: isAppSectionEnabled("strategy", disabledSections),
       },
       {
         label: "Knowledge",
@@ -70,14 +75,14 @@ export function withDockItems<P extends WithDockItemsProps>(WrappedComponent: Re
         icon: <MembersOutline className="size-5" />,
         href: `/${workspaceSlug}/people`,
         isActive: isPeoplePath,
-        shouldRender: true,
+        shouldRender: isAppSectionEnabled("people", disabledSections),
       },
       {
         label: "Clients",
         icon: <CustomersOutline className="size-5" />,
         href: `/${workspaceSlug}/clients`,
         isActive: isClientsPath,
-        shouldRender: true,
+        shouldRender: isAppSectionEnabled("clients", disabledSections),
       },
     ];
 

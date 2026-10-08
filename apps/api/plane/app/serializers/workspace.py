@@ -40,6 +40,10 @@ from django.core.exceptions import ValidationError
 import re
 
 
+# App rail sections a workspace admin may hide (Work and Knowledge always stay on)
+TOGGLEABLE_APP_SECTIONS = ("agents", "strategy", "people", "clients")
+
+
 class WorkSpaceSerializer(DynamicBaseSerializer):
     total_members = serializers.IntegerField(read_only=True)
     logo_url = serializers.CharField(read_only=True)
@@ -57,6 +61,15 @@ class WorkSpaceSerializer(DynamicBaseSerializer):
                 "Name must contain at least one letter or number"
             )
         return value
+
+    def validate_disabled_app_sections(self, value):
+        if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
+            raise serializers.ValidationError("Must be a list of section keys")
+        invalid = sorted(set(value) - set(TOGGLEABLE_APP_SECTIONS))
+        if invalid:
+            raise serializers.ValidationError(f"These sections cannot be disabled: {', '.join(invalid)}")
+        # Store each key once, in rail order
+        return [key for key in TOGGLEABLE_APP_SECTIONS if key in value]
 
     def validate_slug(self, value):
         # Check if the slug is restricted
