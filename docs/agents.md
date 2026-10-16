@@ -32,6 +32,8 @@ to projects with `create_project_member` or the project's Members settings.
 - Assignee pickers, @mention search and the workspace and project member lists include bots (the
   `is_bot=False` filters were removed from the member and search views).
 - Seat counts, analytics and telemetry still exclude bots.
+- Agents get no notifications (in-app or email): the notification task skips bot users, which have no
+  notification preferences. They read their work through the API instead.
 - **Agents > Agent team** (`components/agents/agent-roster.tsx`) lists them with role, manager, open work items
   and recent comments, from `GET /api/workspaces/<slug>/agents/` (`app/views/agents/base.py`).
 
