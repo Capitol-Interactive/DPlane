@@ -184,6 +184,8 @@ from .wiki.base import (
     WikiPageDuplicateEndpoint,
 )
 
+from .agents.base import AgentRosterEndpoint
+
 from .search.base import GlobalSearchEndpoint, SearchEndpoint
 from .search.issue import IssueSearchEndpoint
 

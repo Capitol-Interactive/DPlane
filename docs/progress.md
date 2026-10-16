@@ -21,10 +21,12 @@ current. Feature details live in their own docs.
   bot's display name instead of `<first name>Bot`. Seat counts, analytics and telemetry still exclude bots.
   Changed: `app/views/project/member.py`, `app/views/workspace/member.py`, `app/views/search/base.py`,
   `workspace-member.store.ts`, `comments/card/display.tsx`.
-- Agents > "Agent team" (the old "AI Teammates" placeholder) now lists the workspace's bot users as cards.
-  New: `components/agents/agent-roster.tsx`; page and nav copy updated.
-- Not verified: no backend tests were run (Docker stack not used) and no browser pass. Creating the agent users
-  and per-agent API tokens is still to do.
+- Agents > "Agent team" (the old "AI Teammates" placeholder) lists the workspace's bot users as cards with role,
+  who they report to, open work items and recent comments. New: `User.bot_reports_to` (migration `0125`),
+  `GET /api/workspaces/<slug>/agents/`, the `create_agent` management command and `docs/agents.md`.
+- Verified: the 7 new contract tests pass, along with the wiki, workspace, project-member and app-sections tests,
+  run against a local Postgres. `test_project_app.py` has 7 failures that also fail on `dev` (they need RabbitMQ).
+  Not verified: no browser pass of the Agents page, and the agents themselves are not created yet.
 
 ## 2026-10-08 (section nav panels, Features settings, CI on dev)
 

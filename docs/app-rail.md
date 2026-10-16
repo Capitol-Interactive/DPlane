@@ -56,6 +56,6 @@ Workspace admins can hide Agents, Strategy, People and Clients from the rail for
 
 - Rail labels are hardcoded English (no i18n keys yet).
 - Strategy, People and Clients have nav panels (Asana-style) but every item page is a placeholder. In Agents only
-  "Agent team" is real (`components/agents/agent-roster.tsx`: name, avatar and workspace role of each `is_bot` user);
-  no role description, reporting line or activity yet, because `bot_type` is not exposed by the member API.
+  "Agent team" is real (`components/agents/agent-roster.tsx`, fed by `GET /api/workspaces/<slug>/agents/`);
+  each card shows role, manager, open work items and recent comments (see [agents.md](agents.md)).
 - The More menu only holds rail options; there are no overflow apps yet.

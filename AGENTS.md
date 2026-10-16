@@ -26,6 +26,7 @@
 
 - `docs/progress.md` - running log and status of fork-specific work (update it when you ship something)
 - `docs/app-rail.md` - the app rail and how to add a section
+- `docs/agents.md` - agents as bot users: creating them, the Agents page and the roster API
 - `docs/knowledge-wiki.md` - the workspace wiki (model, API, live server, web, testing)
 - `docs/linting.md` - linting
 

@@ -114,6 +114,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     is_bot = models.BooleanField(default=False)
     bot_type = models.CharField(max_length=30, verbose_name="Bot Type", blank=True, null=True)
+    # fork: for an agent (bot) user, the user it reports to; shown on the Agents page
+    bot_reports_to = models.ForeignKey(
+        "self", on_delete=models.SET_NULL, null=True, blank=True, related_name="bot_reports"
+    )
 
     # timezone
     USER_TIMEZONE_CHOICES = tuple(zip(pytz.common_timezones, pytz.common_timezones))
