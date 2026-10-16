@@ -76,7 +76,7 @@ class WorkSpaceMemberViewSet(BaseViewSet):
     @allow_permission(allowed_roles=[ROLE.ADMIN], level="WORKSPACE")
     def partial_update(self, request, slug, pk):
         workspace_member = WorkspaceMember.objects.get(
-            pk=pk, workspace__slug=slug, member__is_bot=False, is_active=True
+            pk=pk, workspace__slug=slug, is_active=True
         )
         if request.user.id == workspace_member.member_id:
             return Response(
@@ -99,7 +99,7 @@ class WorkSpaceMemberViewSet(BaseViewSet):
     def destroy(self, request, slug, pk):
         # Check the user role who is deleting the user
         workspace_member = WorkspaceMember.objects.get(
-            workspace__slug=slug, pk=pk, member__is_bot=False, is_active=True
+            workspace__slug=slug, pk=pk, is_active=True
         )
 
         # check requesting user role

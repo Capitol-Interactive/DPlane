@@ -57,17 +57,17 @@ export type TSectionNav = {
 export const SECTION_NAV: Partial<Record<TAppSectionKey, TSectionNav>> = {
   agents: {
     title: "Agents",
-    recentEmptyLabel: "Deploy AI Teammates and workflows",
+    recentEmptyLabel: "Agents show up here once added",
     groups: [
       {
         key: "agents",
         items: [
           {
             key: "ai-teammates",
-            label: "AI Teammates",
+            label: "Agent team",
             icon: AgentOutline,
-            title: "Unlock AI Teammates for your organization",
-            description: "Help your team work smarter with AI teammates that support every project.",
+            title: "Your agent team",
+            description: "The agents working alongside your team.",
           },
         ],
       },

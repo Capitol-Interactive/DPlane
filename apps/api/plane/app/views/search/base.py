@@ -333,7 +333,6 @@ class SearchEndpoint(BaseAPIView):
                             q,
                             is_active=True,
                             workspace__slug=slug,
-                            member__is_bot=False,
                             project_id=project_id,
                         )
                         .annotate(
@@ -545,7 +544,6 @@ class SearchEndpoint(BaseAPIView):
                             q,
                             is_active=True,
                             workspace__slug=slug,
-                            member__is_bot=False,
                         )
                         .annotate(
                             member__avatar_url=Case(
