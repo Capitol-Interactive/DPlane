@@ -21,6 +21,8 @@ current. Feature details live in their own docs.
   bot's display name instead of `<first name>Bot`. Seat counts, analytics and telemetry still exclude bots.
   Changed: `app/views/project/member.py`, `app/views/workspace/member.py`, `app/views/search/base.py`,
   `workspace-member.store.ts`, `comments/card/display.tsx`.
+- Agents > "Agent team" (the old "AI Teammates" placeholder) now lists the workspace's bot users as cards.
+  New: `components/agents/agent-roster.tsx`; page and nav copy updated.
 - Not verified: no backend tests were run (Docker stack not used) and no browser pass. Creating the agent users
   and per-agent API tokens is still to do.
 
