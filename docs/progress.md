@@ -14,6 +14,16 @@ current. Feature details live in their own docs.
 | Agents, Strategy, People, Clients sections                             | Nav panels done; pages placeholders  | [app-rail.md](app-rail.md#known-gaps)                   |
 | i18n for rail and wiki sidebar labels                                  | Not started                          |                                                         |
 
+## 2026-10-16 (notifications with agents)
+
+- Fixed the notification task for bot users. Bots have no `UserNotificationPreference`, so a bot subscriber or a
+  mentioned bot raised `DoesNotExist` and stopped every notification for that work item, including the humans'.
+  Bots are now skipped as receivers (`bgtasks/notification_task.py`).
+- Fixed an upstream bug in the same task: the email for a mention in a work item description was addressed to
+  `subscriber` (a leftover loop variable) instead of the mentioned user.
+- Verified: 2 new unit tests in `plane/tests/unit/bg_tasks/test_notification_task_bots.py` fail without the fix and
+  pass with it; the agent contract tests still pass.
+
 ## 2026-10-16 (bot users visible as members)
 
 - Bot users (`is_bot=True`, no login, act through API tokens) now show up in workspace and project member lists,
