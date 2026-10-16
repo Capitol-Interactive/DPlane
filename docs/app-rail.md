@@ -8,7 +8,7 @@ The app rail is the narrow icon column at the far left of the workspace (Asana/P
 | Item      | Route                    | Panel                                                |
 | --------- | ------------------------ | ---------------------------------------------------- |
 | Work      | `/:workspace/` (default) | The existing projects sidebar (titled "Work")        |
-| Agents    | `/:workspace/agents`     | Nav panel, placeholder pages                         |
+| Agents    | `/:workspace/agents`     | Nav panel; "Agent team" lists the bot users          |
 | Strategy  | `/:workspace/strategy`   | Nav panel, placeholder pages                         |
 | Knowledge | `/:workspace/knowledge`  | The wiki, see [knowledge-wiki.md](knowledge-wiki.md) |
 | People    | `/:workspace/people`     | Nav panel, placeholder pages                         |
@@ -55,5 +55,7 @@ Workspace admins can hide Agents, Strategy, People and Clients from the rail for
 ## Known gaps
 
 - Rail labels are hardcoded English (no i18n keys yet).
-- Agents, Strategy, People and Clients have nav panels (Asana-style) but every item page is a placeholder.
+- Strategy, People and Clients have nav panels (Asana-style) but every item page is a placeholder. In Agents only
+  "Agent team" is real (`components/agents/agent-roster.tsx`, fed by `GET /api/workspaces/<slug>/agents/`);
+  each card shows role, manager, open work items and recent comments (see [agents.md](agents.md)).
 - The More menu only holds rail options; there are no overflow apps yet.
