@@ -231,6 +231,13 @@ def notifications(
             project_members = ProjectMember.objects.filter(project_id=project_id, is_active=True).values_list(
                 "member_id", flat=True
             )
+            # Bot users (agents) have no notification preferences and get no notifications
+            bot_member_ids = {
+                str(member_id)
+                for member_id in ProjectMember.objects.filter(
+                    project_id=project_id, is_active=True, member__is_bot=True
+                ).values_list("member_id", flat=True)
+            }
 
             # Get new mentions from the newer instance
             new_mentions = get_new_mentions(requested_instance=requested_data, current_instance=current_instance)
@@ -309,6 +316,8 @@ def notifications(
             issue_subscribers = list(set(issue_subscribers) - {uuid.UUID(actor_id)})
 
             for subscriber in issue_subscribers:
+                if str(subscriber) in bot_member_ids:
+                    continue
                 if issue.created_by_id and issue.created_by_id == subscriber:
                     sender = "in_app:issue_activities:created"
                 elif subscriber in issue_assignees and issue.created_by_id not in issue_assignees:
@@ -463,7 +472,7 @@ def notifications(
             actor = User.objects.get(pk=actor_id)
 
             for mention_id in comment_mentions:
-                if mention_id != actor_id:
+                if mention_id != actor_id and mention_id not in bot_member_ids:
                     preference = UserNotificationPreference.objects.get(user_id=mention_id)
                     for issue_activity in issue_activities_created:
                         notification = create_mention_notification(
@@ -520,7 +529,7 @@ def notifications(
                         bulk_notifications.append(notification)
 
             for mention_id in new_mentions:
-                if mention_id != actor_id:
+                if mention_id != actor_id and mention_id not in bot_member_ids:
                     preference = UserNotificationPreference.objects.get(user_id=mention_id)
                     if (
                         last_activity is not None
@@ -573,7 +582,7 @@ def notifications(
                             bulk_email_logs.append(
                                 EmailNotificationLog(
                                     triggered_by_id=actor_id,
-                                    receiver_id=subscriber,
+                                    receiver_id=mention_id,
                                     entity_identifier=issue_id,
                                     entity_name="issue",
                                     data={
@@ -622,7 +631,7 @@ def notifications(
                                 bulk_email_logs.append(
                                     EmailNotificationLog(
                                         triggered_by_id=actor_id,
-                                        receiver_id=subscriber,
+                                        receiver_id=mention_id,
                                         entity_identifier=issue_id,
                                         entity_name="issue",
                                         data={
