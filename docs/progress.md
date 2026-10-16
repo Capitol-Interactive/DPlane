@@ -14,6 +14,20 @@ current. Feature details live in their own docs.
 | Agents, Strategy, People, Clients sections                             | Nav panels done; pages placeholders  | [app-rail.md](app-rail.md#known-gaps)                   |
 | i18n for rail and wiki sidebar labels                                  | Not started                          |                                                         |
 
+## 2026-10-16 (bot users visible as members)
+
+- Bot users (`is_bot=True`, no login, act through API tokens) now show up in workspace and project member lists,
+  assignee pickers and @mention search, so agents can be assigned work and mentioned. Their comments show the
+  bot's display name instead of `<first name>Bot`. Seat counts, analytics and telemetry still exclude bots.
+  Changed: `app/views/project/member.py`, `app/views/workspace/member.py`, `app/views/search/base.py`,
+  `workspace-member.store.ts`, `comments/card/display.tsx`.
+- Agents > "Agent team" (the old "AI Teammates" placeholder) lists the workspace's bot users as cards with role,
+  who they report to, open work items and recent comments. New: `User.bot_reports_to` (migration `0125`),
+  `GET /api/workspaces/<slug>/agents/`, the `create_agent` management command and `docs/agents.md`.
+- Verified: the 7 new contract tests pass, along with the wiki, workspace, project-member and app-sections tests,
+  run against a local Postgres. `test_project_app.py` has 7 failures that also fail on `dev` (they need RabbitMQ).
+  Not verified: no browser pass of the Agents page, and the agents themselves are not created yet.
+
 ## 2026-10-08 (section nav panels, Features settings, CI on dev)
 
 - Agents, Strategy, People and Clients now have Asana-style sidebar panels (for example Agents: AI Teammates,
